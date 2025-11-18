@@ -3,438 +3,1080 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganesh Phuyal | Civil Engineer & Construction Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <title>Osis International - Geophysical & Civil Engineering Consultants</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles */
         :root {
-            --himalayan-blue: #003893;
-            --himalayan-red: #DC143C;
-            --construction-orange: #f39c12;
-            --survey-green: #27ae60;
-            --concrete-gray: #95a5a6;
-            --light-bg: #f5f7fa;
+            --primary: #1a5276;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
             overflow-x: hidden;
-            background-color: var(--light-bg);
-            color: #333;
         }
         
-        /* Nepal Flag Header */
-        .nepal-flag {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-right: 60px solid var(--himalayan-red);
-            border-bottom: 20px solid transparent;
-            border-top: 20px solid transparent;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
-        }
-        
-        .nepal-flag::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -25px;
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 50px solid var(--himalayan-blue);
-            border-bottom: 15px solid transparent;
-            border-top: 15px solid transparent;
-        }
-        
-        .nepal-flag::after {
-            content: '★';
-            position: absolute;
-            top: -8px;
-            left: -10px;
-            color: white;
-            font-size: 10px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        
-        /* Animated Gradient Header */
-        header {
-            background: linear-gradient(135deg, 
-                          var(--himalayan-blue) 0%, 
-                          var(--construction-orange) 100%);
-            color: white;
-            text-align: center;
-            padding: 150px 20px 120px;
-            position: relative;
-            overflow: hidden;
-            animation: gradientShift 12s ease infinite;
-            background-size: 200% 200%;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-        
-        @keyframes gradientShift {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 700;
         }
         
         h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        p {
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-family: 'Roboto Condensed', sans-serif;
-            letter-spacing: 1px;
+            font-family: 'Roboto', sans-serif;
+            color: #555;
         }
         
-        .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-            background: rgba(0,0,0,0.2);
+        .btn {
             display: inline-block;
-            padding: 10px 25px;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-        }
-        
-        /* 3D Floating Button */
-        .cta-button {
-            display: inline-block;
-            background: var(--himalayan-red);
+            padding: 14px 32px;
+            background: var(--gradient);
             color: white;
-            padding: 18px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.4);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
         
-        .cta-button::before {
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+            border-radius: 50px;
+        }
+        
+        .btn:hover:before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, #c0392b 100%);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-accent:before {
+            background: #c0392b;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 1.05rem;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 200px 0 150px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, white);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card:hover:before {
+            height: 100%;
+        }
+        
+        .service-card:hover .service-icon {
+            background: white;
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .service-card:hover .service-content h3,
+        .service-card:hover .service-content p {
+            color: white;
+        }
+        
+        .service-icon {
+            background: var(--gradient);
+            color: white;
+            font-size: 2.8rem;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            transition: color 0.4s ease;
+        }
+        
+        .service-content p {
+            transition: color 0.4s ease;
+        }
+        
+        /* About Section */
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--light);
+            z-index: -1;
+            border-radius: 0 0 0 100px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: all 0.4s ease;
+        }
+        
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Team Section */
+        .team {
+            background: var(--light);
+            position: relative;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .member-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-image:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(26, 82, 118, 0.7));
+            z-index: 1;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 30px 25px;
+            position: relative;
+        }
+        
+        .member-info h3 {
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        .member-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            color: var(--primary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Projects Section */
+        .projects {
+            position: relative;
+        }
+        
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid var(--light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--construction-orange);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s ease;
+            background: rgba(26, 82, 118, 0.2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
         
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(220, 20, 60, 0.6);
+        .project-card:hover .project-image:before {
+            opacity: 1;
         }
         
-        .cta-button:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
         
-        /* Skill Badges */
-        .skill-badges {
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+        
+        .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 40px 0;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        .skill-badge {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(5px);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .skill-badge:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-        }
-        
-        /* Service Cards */
-        .service-card {
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
             background: white;
             border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            height: 100%;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--himalayan-blue);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
-        .service-card:hover::before {
-            height: 10px;
-            background: var(--construction-orange);
+        .contact-icon {
+            background: var(--gradient);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
         }
         
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            header {
-                padding: 120px 20px 80px;
+        .contact-details h3 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--light);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                text-align: center;
+                transition: 0.4s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                padding: 30px 0;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
             h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
                 font-size: 2.2rem;
             }
-            .tagline {
-                font-size: 1.3rem;
+            
+            section {
+                padding: 80px 0;
             }
-            .nepal-flag {
-                right: 10px;
-                top: 10px;
-                transform: scale(0.8);
+            
+            .hero {
+                padding: 150px 0 100px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Header with Nepal Flag -->
-    <header>
-        <div class="nepal-flag"></div>
-        <div class="header-content">
-            <h1>Ganesh Phuyal</h1>
-            <p class="tagline">Building Nepal's Future - One Precision Project at a Time</p>
-            <a href="#contact" class="cta-button">Hire Me for Your Project</a>
-            
-            <!-- Skill Badges -->
-            <div class="skill-badges">
-                <div class="skill-badge">Total Station Expert</div>
-                <div class="skill-badge">Project Management</div>
-                <div class="skill-badge">Site Supervision</div>
-                <div class="skill-badge">Quality Assurance</div>
-                <div class="skill-badge">AutoCAD Design</div>
-                <div class="skill-badge">Cost Estimation</div>
-                <div class="skill-badge">BOQ Preparation</div>
-                <div class="skill-badge">Construction Safety</div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">O</div>
+                <div class="logo-text">OSIS <span>INTERNATIONAL</span></div>
             </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Professional Title Section -->
-    <section style="background: white; padding: 40px 20px; text-align: center; margin-top: -50px; position: relative; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 15px 15px 0 0; max-width: 900px; margin-left: auto; margin-right: auto;">
-        <h2 style="color: var(--himalayan-blue); margin-bottom: 10px; font-size: 1.8rem;">Civil Engineer </h2>
-        <p style="color: var(--concrete-gray); max-width: 700px; margin: 0 auto;">Certified professional with hands-on experience in building construction, surveying, and project coordination across Nepal</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content fade-in">
+            <h1>Expert Geophysical & Civil Engineering Solutions</h1>
+            <p>Providing comprehensive geophysical surveys, civil works, and consulting services for national and international projects with precision and expertise.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="#services" class="btn btn-accent">Our Services</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Complete Skills Showcase -->
-    <section id="skills" style="padding: 80px 20px; background: var(--light-bg);">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--himalayan-blue);">My Engineering Expertise</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <!-- Surveying Skills -->
-                <div class="service-card">
-                    <div style="font-size: 3rem; color: var(--survey-green); margin-bottom: 20px; text-align: center;">
-                        <i class="fas fa-map-marked-alt"></i>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mountain"></i>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center; color: var(--himalayan-blue);">Surveying Mastery</h3>
-                    <ul style="list-style-type: none; padding: 0; columns: 2; column-gap: 20px;">
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            Total Station Operation
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            Theodolite Surveys
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            Auto Level Measurement
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            Topographic Mapping
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            GIS Data Collection
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--survey-green); margin-right: 8px;"></i>
-                            Boundary Demarcation
-                        </li>
-                    </ul>
+                    <div class="service-content">
+                        <h3>Electrical Resistivity Tomography (ERT)</h3>
+                        <p>Advanced subsurface imaging using electrical resistivity measurements for geological and hydrogeological investigations.</p>
+                    </div>
                 </div>
                 
-                <!-- Construction Skills -->
-                <div class="service-card">
-                    <div style="font-size: 3rem; color: var(--construction-orange); margin-bottom: 20px; text-align: center;">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Multichannel Analysis of Surface Waves (MASW)</h3>
+                        <p>Geophysical method for evaluating the shear-wave velocity profile of the subsurface for geotechnical engineering applications.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-hard-hat"></i>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center; color: var(--himalayan-blue);">Construction Management</h3>
-                    <ul style="list-style-type: none; padding: 0; columns: 2; column-gap: 20px;">
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Project Planning
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Site Supervision
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Quality Control
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Material Testing
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Progress Reporting
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--construction-orange); margin-right: 8px;"></i>
-                            Safety Compliance
-                        </li>
-                    </ul>
+                    <div class="service-content">
+                        <h3>Civil Works</h3>
+                        <p>Full range of civil engineering services from planning and design to construction supervision and quality control.</p>
+                    </div>
                 </div>
                 
-                <!-- Design Skills -->
-                <div class="service-card">
-                    <div style="font-size: 3rem; color: var(--himalayan-blue); margin-bottom: 20px; text-align: center;">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>2D Survey</h3>
+                        <p>High-resolution 2D seismic and geophysical surveys for detailed subsurface characterization.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Soil Testing</h3>
+                        <p>Comprehensive soil analysis including geotechnical properties, contamination assessment, and classification.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Landslide Risk Assessment</h3>
+                        <p>Specialized expertise in landslide investigation, monitoring, and mitigation strategies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Groundwater Exploration</h3>
+                        <p>Identification and assessment of groundwater resources using geophysical methods and hydrogeological analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 20px; text-align: center; color: var(--himalayan-blue);">Design & Estimation</h3>
-                    <ul style="list-style-type: none; padding: 0; columns: 2; column-gap: 20px;">
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            AutoCAD Drafting
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            Building Plans
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            Cost Estimation
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            BOQ Preparation
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            Structural Analysis
-                        </li>
-                        <li style="padding: 8px 0; break-inside: avoid;">
-                            <i class="fas fa-check" style="color: var(--himalayan-blue); margin-right: 8px;"></i>
-                            Material Specification
-                        </li>
-                    </ul>
+                    <div class="service-content">
+                        <h3>Mineral Exploration</h3>
+                        <p>Geological mapping, geochemical sampling, and geophysical surveys for mineral resource assessment.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Timeline -->
-    <section id="experience" style="background: white; padding: 80px 20px;">
-        <div class="container" style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--himalayan-blue);">Professional Journey</h2>
-            
-            <div style="position: relative; max-width: 800px; margin: 0 auto; padding-left: 50px;">
-                <!-- Timeline Line -->
-                <div style="position: absolute; left: 15px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, var(--himalayan-blue), var(--construction-orange)); border-radius: 2px;"></div>
-                
-                <!-- BPKIHS Experience -->
-                <div style="position: relative; margin-bottom: 40px; padding: 30px; background: var(--light-bg); border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
-                    <div style="position: absolute; left: -40px; top: 30px; width: 40px; height: 40px; border-radius: 50%; background: var(--himalayan-blue); display: flex; align-items: center; justify-content: center; color: white; border: 4px solid white; box-shadow: 0 0 0 4px var(--himalayan-blue);">
-                        <i class="fas fa-hospital"></i>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Osis International</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Osis International is a premier consulting company specializing in geophysical investigations and civil engineering works. Founded by Dr. Bikash Phuyal, the company brings together extensive academic knowledge and practical field experience to deliver exceptional results for clients worldwide.</p>
+                    <p>Our team of experts utilizes state-of-the-art equipment and methodologies to provide accurate data interpretation and actionable insights for a wide range of projects including infrastructure development, environmental assessments, and natural hazard mitigation.</p>
+                    <p>With a commitment to excellence and innovation, Osis International has successfully completed numerous national and international projects, earning a reputation for reliability, precision, and professional integrity.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Geophysical Survey">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://scontent.fktm21-1.fna.fbcdn.net/v/t1.6435-9/83412217_2613525662104071_1442777169397809152_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=TyQuiUI4JSsQ7kNvwHRNqgI&_nc_oc=Adkrf1DtXJvL5p4dbGbHq62RJkjuTU5NySOu8UMIjHYP7tduRt-7ynTogBkI2Oiz9gMA1OMGbjNBP-8r71G-pd2A&_nc_zt=23&_nc_ht=scontent.fktm21-1.fna&_nc_gid=B-vdn3NCWlW2lkIm3CxVzA&oh=00_Afiy4N44hvsrMDzOTdfMs_aZZ9VtIeCXU9c_zKyPweDBzQ&oe=6943A539" alt="Dr. Bikash Phuyal">
                     </div>
-                    <h3 style="font-size: 1.5rem; color: var(--himalayan-blue); margin-bottom: 10px;">BPKIHS Project - Rasuwa Construction</h3>
-                    <p style="color: var(--concrete-gray); margin-bottom: 15px; font-size: 0.9rem;">
-                        <i class="far fa-calendar-alt"></i> 2023 - Present | Site Engineer Assistant
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
-                        <div style="background: rgba(39, 174, 96, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--survey-green); font-size: 1rem;">
-                                <i class="fas fa-ruler-combined"></i> Survey Work
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Precision layout with Total Station and Theodolite</p>
-                        </div>
-                        <div style="background: rgba(243, 156, 18, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--construction-orange); font-size: 1rem;">
-                                <i class="fas fa-hard-hat"></i> Supervision
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Daily site monitoring and progress tracking</p>
-                        </div>
-                        <div style="background: rgba(0, 56, 147, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--himalayan-blue); font-size: 1rem;">
-                                <i class="fas fa-clipboard-check"></i> Quality Control
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Material testing and construction standards</p>
+                    <div class="member-info">
+                        <h3>Dr. Bikash Phuyal</h3>
+                        <div class="member-role">Founder & Principal Consultant</div>
+                        <p>Dr. Phuyal holds a Master's degree in Geology from Tribhuvan University and a PhD specializing in Landslide studies. With extensive experience in both national and international projects, he brings deep expertise in geophysical investigations and natural hazard assessment.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-phone"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- AERA Experience -->
-                <div style="position: relative; margin-bottom: 40px; padding: 30px; background: var(--light-bg); border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05);">
-                    <div style="position: absolute; left: -40px; top: 30px; width: 40px; height: 40px; border-radius: 50%; background: var(--construction-orange); display: flex; align-items: center; justify-content: center; color: white; border: 4px solid white; box-shadow: 0 0 0 4px var(--construction-orange);">
-                        <i class="fas fa-building"></i>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://scontent.fktm21-2.fna.fbcdn.net/v/t39.30808-6/469880441_2613365465526444_694900868204077144_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=AsVnpZHHKOgQ7kNvwFfy3Rm&_nc_oc=AdmccTb1GZIp_2_N01bOnOMgYP11LxDabQQfqHJalTIwsqcMYknkY7LuQWIwqRvYU9jJ6-UpsNMO4CG_qT9xY2iB&_nc_zt=23&_nc_ht=scontent.fktm21-2.fna&_nc_gid=xTvmkB5hkBb16oPfARs1oQ&oh=00_Afizai6HLnq53pDvLR7xmgDTKWrx5WRuLuWXiif--wjbKg&oe=69221FAB" alt="Biswash Phuyal">
                     </div>
-                    <h3 style="font-size: 1.5rem; color: var(--himalayan-blue); margin-bottom: 10px;">AERA Consultant</h3>
-                    <p style="color: var(--concrete-gray); margin-bottom: 15px; font-size: 0.9rem;">
-                        <i class="far fa-calendar-alt"></i> 2022 - 2023 | Survey & Design Support
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
-                        <div style="background: rgba(39, 174, 96, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--survey-green); font-size: 1rem;">
-                                <i class="fas fa-map"></i> Land Surveys
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Boundary marking and topographic mapping</p>
+                    <div class="member-info">
+                        <h3>Biswash Phuyal</h3>
+                        <div class="member-role">Senior Geologist</div>
+                        <p>Biswash Phuyal is an experienced geologist with extensive field expertise. He has conducted numerous geological surveys, soil testing, and site investigations across diverse terrains. His practical approach and problem-solving skills have been crucial in completing complex geological projects successfully.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-phone"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-                        <div style="background: rgba(0, 56, 147, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--himalayan-blue); font-size: 1rem;">
-                                <i class="fas fa-pencil-ruler"></i> Design Support
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Residential building plan assistance</p>
-                        </div>
-                        <div style="background: rgba(220, 20, 60, 0.1); padding: 15px; border-radius: 10px;">
-                            <h4 style="margin: 0 0 10px 0; color: var(--himalayan-red); font-size: 1rem;">
-                                <i class="fas fa-file-invoice-dollar"></i> Cost Estimates
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem;">Material and labor cost calculations</p>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1581092335397-75a2762b79b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ganesh Phuyal">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ganesh Phuyal</h3>
+                        <div class="member-role">Civil Engineer & Web Developer</div>
+                        <p>Ganesh is a qualified Civil Engineer responsible for the technical design and development of this website. He combines engineering knowledge with digital expertise to create effective solutions for both physical and digital projects.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-phone"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -442,197 +1084,261 @@
         </div>
     </section>
 
-    <!-- Advanced Contact Form (Sends to Email) -->
-    <section id="contact" style="padding: 80px 20px; background: linear-gradient(135deg, var(--himalayan-blue) 0%, var(--himalayan-red) 100%); color: white;">
-        <div class="container" style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">Ready to Start Your Project?</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px; font-size: 1.1rem; opacity: 0.9;">
-                Get in touch for surveying, construction management, or design consultation services.
-            </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                <!-- Contact Info -->
-                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px);">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 25px; display: flex; align-items: center;">
-                        <i class="fas fa-paper-plane" style="margin-right: 15px; color: var(--construction-orange);"></i>
-                        Direct Contacts
-                    </h3>
-                    <div style="margin-bottom: 25px;">
-                        <p style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <i class="fas fa-phone-alt" style="margin-right: 15px; font-size: 1.2rem; color: var(--construction-orange);"></i>
-                            <a href="tel:+9779766919518" style="color: white; text-decoration: none; font-weight: 500;">+977 9766919518</a>
-                        </p>
-                        <p style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <i class="fab fa-whatsapp" style="margin-right: 15px; font-size: 1.2rem; color: var(--construction-orange);"></i>
-                            <a href="https://wa.me/9779766919518" style="color: white; text-decoration: none; font-weight: 500;">Chat on WhatsApp</a>
-                        </p>
-                        <p style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <i class="fas fa-envelope" style="margin-right: 15px; font-size: 1.2rem; color: var(--construction-orange);"></i>
-                            <a href="mailto:guru@ganeshphuyal.com.np" style="color: white; text-decoration: none; font-weight: 500;">guru@ganeshphuyal.com.np</a>
-                        </p>
-                        <p style="display: flex; align-items: center;">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 15px; font-size: 1.2rem; color: var(--construction-orange);"></i>
-                            <span style="font-weight: 500;">Nepal (Available for Projects Nationwide)</span>
-                        </p>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="national">National</button>
+                <button class="filter-btn" data-filter="international">International</button>
+                <button class="filter-btn" data-filter="landslide">Landslide Studies</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in" data-category="national landslide">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Landslide Risk Assessment">
+                    </div>
+                    <div class="project-info">
+                        <h3>Landslide Risk Assessment - Mid-Hill Highway</h3>
+                        <p>Comprehensive landslide investigation and risk assessment along critical sections of Nepal's Mid-Hill Highway.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="international">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Groundwater Exploration">
+                    </div>
+                    <div class="project-info">
+                        <h3>Groundwater Exploration - South Asia</h3>
+                        <p>ERT surveys for groundwater exploration in drought-prone regions of South Asia.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="national">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Municipal Solid Waste Management">
+                    </div>
+                    <div class="project-info">
+                        <h3>Municipal Solid Waste Management - Kathmandu Valley</h3>
+                        <p>Site characterization and monitoring system design for landfill sites in the Kathmandu Valley.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Kageshwori 09, Manohara, Kathmandu, Nepal</p>
+                        </div>
                     </div>
                     
-                    <h3 style="font-size: 1.5rem; margin-bottom: 25px; display: flex; align-items: center;">
-                        <i class="fas fa-clock" style="margin-right: 15px; color: var(--construction-orange);"></i>
-                        Availability
-                    </h3>
-                    <p style="margin-bottom: 10px;"><strong>Sunday-Friday:</strong> 7:00 AM - 6:00 PM</p>
-                    <p><strong>Emergency Sites:</strong> 24/7 On-Call</p>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p>+977-1-XXXXXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>osisinfos@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Working Hours</h3>
+                            <p>Sunday - Friday: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Functional Contact Form -->
-                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px);">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 25px; display: flex; align-items: center;">
-                        <i class="fas fa-envelope-open-text" style="margin-right: 15px; color: var(--construction-orange);"></i>
-                        Send Message
-                    </h3>
-                    <form action="https://formsubmit.co/guru@ganeshphuyal.com.np" method="POST">
-                        <input type="hidden" name="_subject" value="New Project Inquiry from Website">
-                        <input type="hidden" name="_autoresponse" value="Thank you for contacting Ganesh Phuyal - Civil Sub-Engineer. I'll review your message and respond within 24 hours. For urgent matters, please call +977 9766919518.">
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Your Name</label>
-                            <input type="text" id="name" name="name" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.2); color: white; font-family: 'Poppins', sans-serif;">
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
                         </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email Address</label>
-                            <input type="email" id="email" name="email" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.2); color: white; font-family: 'Poppins', sans-serif;">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
                         </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500;">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.2); color: white; font-family: 'Poppins', sans-serif;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
                         </div>
-                        
-                        <div style="margin-bottom: 25px;">
-                            <label for="service" style="display: block; margin-bottom: 8px; font-weight: 500;">Service Needed</label>
-                            <select id="service" name="service" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.2); color: white; font-family: 'Poppins', sans-serif; appearance: none;">
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="Surveying">Land Surveying (Total Station/Theodolite)</option>
-                                <option value="Construction">Construction Supervision</option>
-                                <option value="Design">Building Design & Drafting</option>
-                                <option value="Estimation">Cost Estimation & BOQ</option>
-                                <option value="Other">Other Engineering Service</option>
-                            </select>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
                         </div>
-                        
-                        <div style="margin-bottom: 25px;">
-                            <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Project Details</label>
-                            <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.2); color: white; font-family: 'Poppins', sans-serif;"></textarea>
-                        </div>
-                        
-                        <button type="submit" style="background: var(--construction-orange); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: 600; font-size: 1rem; width: 100%; cursor: pointer; transition: all 0.3s ease;">
-                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> Send Message
-                        </button>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Gallery Section -->
-    <section id="gallery" style="padding: 80px 20px; background: white;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--himalayan-blue);">Project Showcase</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <!-- Sample Project 1 -->
-                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
-                    <div style="height: 200px; background: url('data:image/jpeg;base64,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-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uc3RydWN0aW9uJTIwc2l0ZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80') center/cover;"></div>
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px 0; color: var(--himalayan-blue);">BPKIHS Construction</h3>
-                        <p style="margin: 0 0 15px 0; color: var(--concrete-gray); font-size: 0.9rem;">Site supervision and quality control</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                            <span style="background: rgba(39, 174, 96, 0.1); color: var(--survey-green); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">Total Station</span>
-                            <span style="background: rgba(243, 156, 18, 0.1); color: var(--construction-orange); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">Supervision</span>
-                        </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Osis International</h3>
+                    <p>Providing expert geophysical and civil engineering consulting services with precision, innovation, and integrity.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
-                <!-- Sample Project 2 -->
-                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
-                    <div style="height: 200px; background: url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3VydmV5aW5nfGVufDB8fDB8fHww&w=1000&q=80') center/cover;"></div>
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px 0; color: var(--himalayan-blue);">Land Survey Project</h3>
-                        <p style="margin: 0 0 15px 0; color: var(--concrete-gray); font-size: 0.9rem;">Topographic mapping for residential area</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                            <span style="background: rgba(39, 174, 96, 0.1); color: var(--survey-green); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">Theodolite</span>
-                            <span style="background: rgba(0, 56, 147, 0.1); color: var(--himalayan-blue); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">Mapping</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sample Project 3 -->
-                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative;">
-                    <div style="height: 200px; background: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29uc3RydWN0aW9uJTIwZHJhd2luZ3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80') center/cover;"></div>
-                    <div style="padding: 20px;">
-                        <h3 style="margin: 0 0 10px 0; color: var(--himalayan-blue);">Residential Design</h3>
-                        <p style="margin: 0 0 15px 0; color: var(--concrete-gray); font-size: 0.9rem;">2D/3D planning for private residence</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                            <span style="background: rgba(0, 56, 147, 0.1); color: var(--himalayan-blue); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">AutoCAD</span>
-                            <span style="background: rgba(220, 20, 60, 0.1); color: var(--himalayan-red); padding: 5px 10px; border-radius: 50px; font-size: 0.8rem;">Estimation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#contact" class="cta-button" style="display: inline-block; background: var(--himalayan-blue); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(0, 56, 147, 0.4); transition: all 0.3s ease;">
-                    <i class="fas fa-calendar-check" style="margin-right: 10px;"></i> Book a Site Visit
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nepal-Inspired Footer -->
-    <footer style="background: #111; color: white; padding: 50px 20px 30px; text-align: center; position: relative; clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%); margin-top: -20px;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px;">
-                <div style="flex: 1; min-width: 250px; text-align: left;">
-                    <h3 style="color: var(--construction-orange); margin-bottom: 20px; font-size: 1.3rem;">Ganesh Phuyal</h3>
-                    <p style="opacity: 0.8; line-height: 1.6;">Certified Engineer specializing in construction management, surveying, and building design across Nepal.</p>
-                </div>
-                
-                <div style="flex: 1; min-width: 250px; text-align: left;">
-                    <h3 style="color: var(--construction-orange); margin-bottom: 20px; font-size: 1.3rem;">Quick Links</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
-                        <li><a href="#services" style="color: white; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;">Services</a></li>
-                        <li><a href="#experience" style="color: white; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;">Experience</a></li>
-                        <li><a href="#gallery" style="color: white; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;">Projects</a></li>
-                        <li><a href="#contact" style="color: white; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;">Contact</a></li>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
-                <div style="flex: 1; min-width: 250px; text-align: left;">
-                    <h3 style="color: var(--construction-orange); margin-bottom: 20px; font-size: 1.3rem;">Connect With Me</h3>
-                    <div style="display: flex; gap: 15px; font-size: 1.5rem;">
-                        <a href="#" style="color: white; opacity: 0.7; transition: all 0.3s ease;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: white; opacity: 0.7; transition: all 0.3s ease;"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" style="color: white; opacity: 0.7; transition: all 0.3s ease;"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" style="color: white; opacity: 0.7; transition: all 0.3s ease;"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
-                        <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
-                        Serving all Nepal - Based in Kathmandu Valley
-                    </p>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Electrical Resistivity Tomography</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Multichannel Analysis of Surface Waves</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Civil Works</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 2D Survey</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Soil Testing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Landslide Risk Assessment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Kageshwori 09, Manohara, Kathmandu</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +977-1-XXXXXXX</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> osisinfos@gmail.com</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
-                <p style="margin: 0; opacity: 0.7;">© <script>document.write(new Date().getFullYear())</script> Ganesh Phuyal - Civil Engineer. All rights reserved.</p>
-                <p style="margin: 10px 0 0 0; opacity: 0.6; font-size: 0.8rem;">Proudly contributing to Nepal's infrastructure development</p>
+            <div class="copyright">
+                <p>&copy; 2023 Osis International. All Rights Reserved. | Designed by Ganesh Phuyal</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/9779766919518" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: all 0.3s ease;">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Project Filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                const projectCards = document.querySelectorAll('.project-card');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            fadeObserver.observe(element);
+        });
+    </script>
 </body>
 </html>
